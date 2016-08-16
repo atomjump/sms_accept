@@ -18,10 +18,9 @@
   
   
     }
-    $agent = $sms_accept_config['agent'];
-	ini_set("user_agent",$agent);
-	$_SERVER['HTTP_USER_AGENT'] = $agent;
-	$start_path = $sms_accept_config['serverPath'];
+
+
+     $start_path = $sms_accept_config['serverPath'];
 	
 	
 	$notify = false;
@@ -33,6 +32,20 @@
 	$api = new cls_plugin_api();
 
 
+    function find_layer($body)
+    {
+        $words = str_split($body);
+        foreach($words as $word) {
+            if(substr($word, -1) == '@') {
+                return rtrim($word, '@');
+            }   
+        }
+        return false; 
+
+    }
+
+
+
 
   
     // if the sender is known, then greet them by name
@@ -41,9 +54,16 @@
          $name = "Anon " . substr($_REQUEST['From'], -2);
     }
      
+    //Search the Body of the message for the first 'word@' mention - this is the layer to send to
     //$_REQUEST['Body']   - sms body
+ 
 
-    //print_r($_REQUEST);
+   $shouted = $title . $summary_description . " " . $guid;		//guid may not be url for some feeds, may need to have link
+    $your_name = $name;
+    $whisper_to = "";
+    $email = $feed['email'];
+    $ip = "92.27.10.17"; //must be something anything
+    $forum_name = $feed['aj'];
 
     // now greet the sender
     header("content-type: text/xml");
