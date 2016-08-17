@@ -1,5 +1,6 @@
 {
     "serverPath": "your_path/loop-server/",
     "domain": "http://FORUM.ajmp.co",
-    "forumPrename": "ajps_"
+    "forumPrename": "ajps_",
+    "respond": true
 }
