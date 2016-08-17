@@ -36,8 +36,9 @@
     {
         $words = str_split($body);
         foreach($words as $word) {
-            if(substr($word, -1) == '@') {
-                return rtrim($word, '@');
+            echo $word;
+            if(substr($word, -1) == '\@') {
+                return rtrim($word, '\@');
             }   
         }
         return false; 
