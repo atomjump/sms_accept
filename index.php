@@ -56,7 +56,7 @@
      
     //Search the Body of the message for the first 'word@' mention - this is the forum to send to
     //$_REQUEST['Body']   - sms body
-   if(($forum = find_forum($_REQUEST['Body']) != false) {
+   if(($forum = find_forum($_REQUEST['Body'])) != false) {
 
       //We have a forum to post to
   
