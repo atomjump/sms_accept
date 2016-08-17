@@ -24,6 +24,15 @@
 	$domain = $sms_accept_config['domain'];
         $prename = $sms_accept_config['forumPrename'];
         $respond = $sms_accept_config['respond'];
+        $unique_field = $sms_accept_config['uniqueSenderName'];
+        $unique_value = $sms_accept_config['uniqueSenderId'];
+
+        //Check if the identity of the sender is correct
+        if($_REQUEST[$unique_field] != $unique_value) {
+            echo "Sorry, you are not permitted.";
+            exit(0);
+        }
+
 	
 	$notify = false;
 	include_once($start_path . 'config/db_connect.php');	
