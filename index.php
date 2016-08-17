@@ -63,7 +63,7 @@
       //We have a forum to post to
   
        $to_replace = $forum . '@';
-       $shouted = trim(str_replace($to_replace, "", $_REQUEST['Body']));		//guid may not be url for some feeds, may need to have link
+       $shouted = "(Via SMS) . trim(str_replace($to_replace, "", $_REQUEST['Body']));		//guid may not be url for some feeds, may need to have link
        $your_name = $name;
        $whisper_to = "";
        $email = "noreply" . $_REQUEST['From'] . "@atomjump.com";
