@@ -23,6 +23,7 @@
         $start_path = $sms_accept_config['serverPath'];
 	$domain = $sms_accept_config['domain'];
         $prename = $sms_accept_config['forumPrename'];
+        $respond = $sms_accept_config['respond'];
 	
 	$notify = false;
 	include_once($start_path . 'config/db_connect.php');	
@@ -76,6 +77,8 @@
       //Send the message
       $api->new_message($your_name, $shouted, $whisper_to, $email, $ip, $forum_info['forum_id'], false);
 						
+    if($respond == true) {
+
     // now greet the sender
     header("content-type: text/xml");
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
@@ -91,4 +94,7 @@
 <Response>
     <Message><?php echo $name ?>, thanks, but your message is missing a forum name with an @ at the end. Please try again.</Message>
 </Response>
-<?php } ?>
+<?php      } 
+
+    }  //End of response
+?>
