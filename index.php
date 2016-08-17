@@ -88,7 +88,12 @@
       //Send the message
       $api->new_message($your_name, $shouted, $whisper_to, $email, $ip, $forum_info['forum_id'], false);
 						
-    if($respond == true) {
+    if($respond == false) {
+       //Early exit without a response
+       header("content-type: text/xml");
+       echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+       exit(0);
+    }
 
     // now greet the sender
     header("content-type: text/xml");
@@ -100,12 +105,12 @@
 <?php  
      } else {
 
-       //No body message
+       //No forum in the message
 ?>
 <Response>
     <Message><?php echo $name ?>, thanks, but your message is missing a forum name with an @ at the end. Please try again.</Message>
 </Response>
-<?php      } 
+<?php    
 
     }  //End of response
 ?>
