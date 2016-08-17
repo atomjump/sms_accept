@@ -38,7 +38,7 @@
         $words = explode(" ", $body);
         foreach($words as $word) {
             if(substr($word, -1) == '@') {
-                return $prename . rtrim($word, '@');    //prepend e.g. 'ajps_' to the forum name
+                return rtrim($word, '@');    
             }   
         }
         return false; 
@@ -68,7 +68,7 @@
        $whisper_to = "";
        $email = "noreply" . $_REQUEST['From'] . "@atomjump.com";
        $ip = "92.27.10.17"; //must be something anything
-       $forum_name = $forum;
+       $forum_name = $prename . $forum;     //prepend e.g. 'ajps_' to the forum name
 
        //Get the forum id
        $forum_info = $api->get_forum_id($forum_name);
