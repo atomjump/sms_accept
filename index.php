@@ -62,7 +62,7 @@
       //We have a forum to post to
   
 
-       $shouted = $title . $summary_description . " " . $guid;		//guid may not be url for some feeds, may need to have link
+       $shouted = trim(str_replace($forum_name . '@', "", $_REQUEST['Body']));		//guid may not be url for some feeds, may need to have link
        $your_name = $name;
        $whisper_to = "";
        $email = "noreply" . $_REQUEST['From'] . "@atomjump.com";
