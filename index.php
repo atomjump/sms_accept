@@ -81,7 +81,7 @@
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 ?>
 <Response>
-    <Message><?php echo $name ?>, thanks, your message has been posted to <?php echo str_replace("FORUM", $forum_name, $domain); ?>!</Message>
+    <Message><?php echo $name ?>, thanks, your message has been posted to <?php echo str_replace("FORUM", $forum, $domain); ?>!</Message>
 </Response>
 <?php  
      } else {
