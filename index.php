@@ -20,8 +20,9 @@
     }
 
 
-     $start_path = $sms_accept_config['serverPath'];
+        $start_path = $sms_accept_config['serverPath'];
 	$domain = $sms_accept_config['domain'];
+        $prename = $sms_accept_config['forumPrename'];
 	
 	$notify = false;
 	include_once($start_path . 'config/db_connect.php');	
@@ -37,7 +38,7 @@
         $words = explode(" ", $body);
         foreach($words as $word) {
             if(substr($word, -1) == '@') {
-                return rtrim($word, '@');
+                return $prename . rtrim($word, '@');    //prepend e.g. 'ajps_' to the forum name
             }   
         }
         return false; 
@@ -61,7 +62,7 @@
 
       //We have a forum to post to
   
-       $to_replace = $forum_name . '@';
+       $to_replace = $forum . '@';
        $shouted = trim(str_replace($to_replace, "", $_REQUEST['Body']));		//guid may not be url for some feeds, may need to have link
        $your_name = $name;
        $whisper_to = "";
