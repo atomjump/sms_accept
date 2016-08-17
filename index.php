@@ -34,7 +34,7 @@
 
     function find_forum($body)
     {
-        $words = str_split($body);
+        $words = str_split($body, " ");
         foreach($words as $word) {
             echo $word . "  ";
             echo "End:" . substr($word, -1);
@@ -58,7 +58,8 @@
      
     //Search the Body of the message for the first 'word@' mention - this is the forum to send to
     //$_REQUEST['Body']   - sms body
-   if(($forum = find_forum($_REQUEST['Body'])) != false) {
+    $forum = find_forum($_REQUEST['Body'];
+   if($forum != false) {
 
       //We have a forum to post to
   
