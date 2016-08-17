@@ -21,7 +21,7 @@
 
 
      $start_path = $sms_accept_config['serverPath'];
-	
+	$domain = $sms_accept_config['domain'];
 	
 	$notify = false;
 	include_once($start_path . 'config/db_connect.php');	
@@ -61,8 +61,8 @@
 
       //We have a forum to post to
   
-
-       $shouted = trim(str_replace($forum_name . '@', "", $_REQUEST['Body']));		//guid may not be url for some feeds, may need to have link
+       $to_replace = $forum_name . '@';
+       $shouted = trim(str_replace($to_replace, "", $_REQUEST['Body']));		//guid may not be url for some feeds, may need to have link
        $your_name = $name;
        $whisper_to = "";
        $email = "noreply" . $_REQUEST['From'] . "@atomjump.com";
@@ -80,7 +80,7 @@
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 ?>
 <Response>
-    <Message><?php echo $name ?>, thanks, your message has been posted to <?php str_replace("FORUM", $forum_name, $sms_accept_config['domain']); ?>!</Message>
+    <Message><?php echo $name ?>, thanks, your message has been posted to <?php echo str_replace("FORUM", $forum_name, $domain); ?>!</Message>
 </Response>
 <?php  
      } else {
