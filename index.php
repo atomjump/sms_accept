@@ -27,6 +27,8 @@
         $unique_field = $sms_accept_config['uniqueSenderName'];
         $unique_value = $sms_accept_config['uniqueSenderId'];
 
+        error_log(print_r($_REQUEST, true));
+
         //Check if the identity of the sender is correct
         if($_REQUEST[$unique_field] != $unique_value) {
             echo "Sorry, you are not permitted.";
