@@ -2,5 +2,7 @@
     "serverPath": "your_path/loop-server/",
     "domain": "http://FORUM.ajmp.co",
     "forumPrename": "ajps_",
-    "respond": true
+    "respond": true,
+    "uniqueSenderName": "AccountSid",
+    "uniqueSenderId": "ACc05c593319f12504bdd01b2cacf2f573"
 }
