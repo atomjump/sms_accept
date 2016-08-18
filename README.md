@@ -13,7 +13,7 @@ Twilio or some other SMS receiving service.
 
 ```
 cd /your/loop-server/plugins
-git clone [this project]
+git clone https://github.com/atomjump/sms_accept.git
 ```
 
 Edit the js/config.json file as below.
