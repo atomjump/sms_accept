@@ -4,5 +4,7 @@
     "forumPrename": "ajps_",
     "respond": true,
     "uniqueSenderName": "AccountSid",
-    "uniqueSenderId": "ACc05c593319f12504bdd01b2cacf2f573"
+    "uniqueSenderId": "ACc05c593319f12504bdd01b2cacf2f573",
+    "fromField": "From",
+    "bodyField": "Body"
 }
