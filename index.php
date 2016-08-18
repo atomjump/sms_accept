@@ -26,6 +26,8 @@
         $respond = $sms_accept_config['respond'];
         $unique_field = $sms_accept_config['uniqueSenderName'];
         $unique_value = $sms_accept_config['uniqueSenderId'];
+        $from_field = $sms_accept_config['fromField'];
+        $body_field = $sms_accept_config['bodyField'];
 
         error_log("SMS received OK:". print_r($_REQUEST, true));
 
@@ -63,22 +65,22 @@
   
     // if the sender is known, then greet them by name
     // otherwise, consider them just another monkey
-    if(isset($_REQUEST['From'])) {
-         $name = "Anon " . substr($_REQUEST['From'], -2);
+    if(isset($_REQUEST[$from_field])) {
+         $name = "Anon " . substr($_REQUEST[$from_field], -2);
     }
      
     //Search the Body of the message for the first 'word@' mention - this is the forum to send to
     //$_REQUEST['Body']   - sms body
-    $forum = find_forum($_REQUEST['Body']);
+    $forum = find_forum($_REQUEST[$body_field]);
    if($forum != false) {
 
       //We have a forum to post to
   
        $to_replace = $forum . '@';
-       $shouted = "(Via SMS) " . trim(str_replace($to_replace, "", $_REQUEST['Body']));		//guid may not be url for some feeds, may need to have link
+       $shouted = "(Via SMS) " . trim(str_replace($to_replace, "", $_REQUEST[$body_field]));		//guid may not be url for some feeds, may need to have link
        $your_name = $name;
        $whisper_to = "";
-       $email = "noreply" . $_REQUEST['From'] . "@atomjump.com";
+       $email = "noreply" . $_REQUEST[$from_field] . "@atomjump.com";
        $ip = "92.27.10.17"; //must be something anything
        $forum_name = $prename . $forum;     //prepend e.g. 'ajps_' to the forum name
 
