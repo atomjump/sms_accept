@@ -32,7 +32,9 @@ http://your.loop.server/plugins/sms_accept/
     "forumPrename": "ajps_",
     "respond": true,
     "uniqueSenderName": "AccountSid",
-    "uniqueSenderId": "ACc05c593319f12504bdd01b2cacf2f573"
+    "uniqueSenderId": "ACc05c593319f12504bdd01b2cacf2f573",
+    "fromField": "From",
+    "bodyField": "Body"
 }
 ```
 
@@ -48,6 +50,9 @@ http://your.loop.server/plugins/sms_accept/
 
 **uniqueSenderId**  The required value in the URL parameter defined by 'uniqueSenderName', for the message to be accepted.
 
+**fromField**  The URL parameter sent from the SMS receiving software that defines the telephone number it is from. In Twilio, this will be 'From'.
+
+**bodyField**  The URL parameter sent from the SMS receiving software that defines the message body. In Twilio, this will be 'Body'.
 
 ## Usage
 
