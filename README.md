@@ -6,7 +6,7 @@ Accept SMS messages and post them to a forum
 
 AtomJump Loop Server > 0.6.0
 
-Twilio or some other SMS receiving service.
+Twilio or some other SMS receiving service with a phone number to receive.
 
 
 ## Installation
@@ -47,3 +47,13 @@ http://your.loop.server/plugins/sms_accept/
 **uniqueSenderName**  The field name parameter requested in the URL that defines who identifies the sender. In Twilio, this will be 'AccountSid'.
 
 **uniqueSenderId**  The required value in the URL parameter defined by 'uniqueSenderName', for the message to be accepted.
+
+
+## Usage
+
+Text a message to the phone number you set up, with 'forumName@' i.e. a trailing 'at' sign after the forum's name.
+e.g. text
+
+```
+hello world travel@
+```
