@@ -1,5 +1,14 @@
 <?php
 
+	function trim_trailing_slash_local($str) {
+        return rtrim($str, "/");
+    }
+    
+    function add_trailing_slash_local($str) {
+        //Remove and then add
+        return rtrim($str, "/") . '/';
+    }
+
   if(!isset($sms_accept_config)) {
         //Get global plugin config - but only once
 		$data = file_get_contents (dirname(__FILE__) . "/config/config.json");
@@ -20,22 +29,22 @@
     }
 
 
-        $start_path = $sms_accept_config['serverPath'];
+    $start_path = add_trailing_slash_local($sms_accept_config['serverPath']);
 	$domain = $sms_accept_config['domain'];
-        $prename = $sms_accept_config['forumPrename'];
-        $respond = $sms_accept_config['respond'];
-        $unique_field = $sms_accept_config['uniqueSenderName'];
-        $unique_value = $sms_accept_config['uniqueSenderId'];
-        $from_field = $sms_accept_config['fromField'];
-        $body_field = $sms_accept_config['bodyField'];
+    $prename = $sms_accept_config['forumPrename'];
+    $respond = $sms_accept_config['respond'];
+    $unique_field = $sms_accept_config['uniqueSenderName'];
+    $unique_value = $sms_accept_config['uniqueSenderId'];
+    $from_field = $sms_accept_config['fromField'];
+    $body_field = $sms_accept_config['bodyField'];
 
-        error_log("SMS received OK:". print_r($_REQUEST, true));
+    error_log("SMS received OK:". print_r($_REQUEST, true));
 
-        //Check if the identity of the sender is correct
-        if($_REQUEST[$unique_field] != $unique_value) {
-            echo "Sorry, you are not permitted.";
-            exit(0);
-        }
+    //Check if the identity of the sender is correct
+    if($_REQUEST[$unique_field] != $unique_value) {
+        echo "Sorry, you are not permitted.";
+        exit(0);
+    }
 
 	
 	$notify = false;
