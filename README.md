@@ -4,7 +4,7 @@ Accept SMS messages and post them to a forum
 
 ## Requirements
 
-AtomJump Loop Server > 0.6.0
+AtomJump Messaging Server > 0.6.0
 
 Twilio or some other SMS receiving service with a phone number to receive.
 
@@ -12,22 +12,22 @@ Twilio or some other SMS receiving service with a phone number to receive.
 ## Installation
 
 ```
-cd /your/loop-server/plugins
-git clone https://github.com/atomjump/sms_accept.git
+cd /your/messaging-server/plugins
+git clone https://git.atomjump.com/sms_accept.git
 ```
 
 Edit the js/config.json file as below.
 Enter your URL as into e.g. Twilio's SMS notification URL on receiving an SMS.
 
 ```
-http://your.loop.server/plugins/sms_accept/
+http://your.messaging.server/plugins/sms_accept/
 ```
 
 ## Settings
 
 ```json
 {
-    "serverPath": "your_path/loop-server/",
+    "serverPath": "your_path/messaging-server/",
     "domain": "http://FORUM.ajmp.co",
     "forumPrename": "ajps_",
     "respond": true,
@@ -38,7 +38,7 @@ http://your.loop.server/plugins/sms_accept/
 }
 ```
 
-**serverPath**  Your AtomJump loop-server path, including the trailing slash.
+**serverPath**  Your AtomJump Messaging server path, including the trailing slash.
 
 **domain**  Include the code 'FORUM' where the forum name will appear. This is in the returned in a reply SMS after a user has sent their own in.
 
