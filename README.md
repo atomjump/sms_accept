@@ -1,6 +1,7 @@
 # sms_accept
 Accept SMS messages and post them to a forum
 
+__WARNING: this project has now moved to https://src.atomjump.com/atomjump/sms_accept.git__
 
 ## Requirements
 
